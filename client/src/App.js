@@ -5,13 +5,13 @@ function App() {
   const [tasks, setTasks] = useState([]);
 
   const fetchTasks = async () => {
-    const res = await fetch("http://localhost:5000/tasks");
+    const res = await fetch("http://localhost:5001/tasks");
     const data = await res.json();
     setTasks(data);
   };
 
   const addTask = async () => {
-    await fetch("http://localhost:5000/tasks", {
+    await fetch("http://localhost:5001/tasks", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -23,7 +23,7 @@ function App() {
   };
 
   const deleteTask = async (index) => {
-    await fetch(`http://localhost:5000/tasks/${index}`, {
+    await fetch(`http://localhost:5001/tasks/${index}`, {
       method: "DELETE",
     });
     fetchTasks();
